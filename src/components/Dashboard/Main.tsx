@@ -1,4 +1,3 @@
-import Card from "./Card";
 import { Searchbox } from "../../ui/Searchbox";
 import HomeCarousel from "./HomeCarousel";
 import { Button } from "../../ui";

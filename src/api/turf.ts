@@ -50,7 +50,7 @@ export async function duplicateTurf(id:string){
 }
 
 
-export async function createTurf(data:Turf){
+export async function createTurf(data: unknown){
     try{
         const response = await axios.post(`${BACKEND_URL}/api/v1/turf`,data,{
             headers:{
