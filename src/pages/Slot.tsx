@@ -3,63 +3,63 @@ import { Button } from "../ui/button";
 import { Schedule } from "../components/Slot/Schedule";
 //import { SlotPage } from "../components/Slot/Slot"; // Import SlotPage
 import { useToast } from "../ui/use-toast";
-import { createSlots, fetchSlots, getAllSchedules } from "../api/slots";
+import { fetchSlots, getAllSchedules } from "../api/slots";
 import { ScheduleType } from "../interfaces/Schedule";
 import {
   AlertDialog,
-  AlertDialogCancel,
+  // AlertDialogCancel,
   AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
+  // AlertDialogDescription,
+  // AlertDialogFooter,
+  // AlertDialogHeader,
+  // AlertDialogTitle,
   AlertDialogTrigger,
 } from "../ui/AlertBox";
-import { Loader } from "../ui";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "../ui/select";
-import { Turf } from "../interfaces";
+// import { Loader } from "../ui";
+// import {
+//   Select,
+//   SelectContent,
+//   SelectItem,
+//   SelectTrigger,
+//   SelectValue,
+// } from "../ui/select";
+// import { Turf } from "../interfaces";
 import { getTurfs } from "../api/slots";
-import { DatePickerWithRange } from "../ui/DateRange";
-import { addDays } from "date-fns";
-import { DateRange } from "react-day-picker";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
-import { useNavigate } from "react-router-dom";
-import { SlotPage } from "../components/Slot/Slot";
-import { Label, LabelInputContainer } from "../ui";
-import { useForm, Controller } from "react-hook-form";
-import SelectInput from "../ui/SelectInput";
+// import { DatePickerWithRange } from "../ui/DateRange";
+// import { addDays } from "date-fns";
+// import { DateRange } from "react-day-picker";
+import { Tabs} from "../ui/tabs";
+// import { useNavigate } from "react-router-dom";
+// import { SlotPage } from "../components/Slot/Slot";
+// import { Label, LabelInputContainer } from "../ui";
+import { useForm } from "react-hook-form";
+// import SelectInput from "../ui/SelectInput";
 
-const slots = [
-  {
-    date: "2021-09-01",
-    startTime: "10:00 AM",
-    endTime: "12:00 PM",
-  },
-  {
-    date: "2021-09-01",
-    startTime: "02:00 PM",
-    endTime: "04:00 PM",
-  },
-  {
-    date: "2021-09-02",
-    startTime: "10:00 AM",
-    endTime: "12:00 PM",
-  },
-  {
-    date: "2021-09-02",
-    startTime: "02:00 PM",
-    endTime: "04:00 PM",
-  },
-]
+// const slots = [
+//   {
+//     date: "2021-09-01",
+//     startTime: "10:00 AM",
+//     endTime: "12:00 PM",
+//   },
+//   {
+//     date: "2021-09-01",
+//     startTime: "02:00 PM",
+//     endTime: "04:00 PM",
+//   },
+//   {
+//     date: "2021-09-02",
+//     startTime: "10:00 AM",
+//     endTime: "12:00 PM",
+//   },
+//   {
+//     date: "2021-09-02",
+//     startTime: "02:00 PM",
+//     endTime: "04:00 PM",
+//   },
+// ]
 
 export function Slot() {
-  const { register, handleSubmit, setValue, control, watch } = useForm();
+  const { setValue } = useForm();
   const [turfList, setTurfList] = useState([]);
   const [chosenTurf, setChosenTurf] = useState("");
   const [chosenTurfKey, setChosenTurfKey] = useState("");
@@ -212,18 +212,18 @@ export function SchedulePage({ turf }: { turf: string }) {
   );
 }
 
-const weekDays = [
-  "monday",
-  "tuesday",
-  "wednesday",
-  "thursday",
-  "friday",
-  "saturday",
-  "sunday",
-];
+// const weekDays = [
+//   "monday",
+//   "tuesday",
+//   "wednesday",
+//   "thursday",
+//   "friday",
+//   "saturday",
+//   "sunday",
+// ];
 
 function ScheduleCard({
-  schedule,
+  // schedule,
   index,
   turfId
 }: {
@@ -231,15 +231,15 @@ function ScheduleCard({
   index: number;
   turfId: string;
 }) {
-  const [loading, setLoading] = useState<boolean>(false);
+  // const [loading, setLoading] = useState<boolean>(false);
   const [open, setOpen] = useState<boolean>(false);
   const [slots, setSlots] = useState<any[]>([]);
-  const [date, setDate] = useState<DateRange>({
-    from: new Date(),
-    to: addDays(new Date(), 10),
-  });
-  const { toast } = useToast();
-  const navigate = useNavigate();
+  // const [date, setDate] = useState<DateRange>({
+  //   from: new Date(),
+  //   to: addDays(new Date(), 10),
+  // });
+  // const { toast } = useToast();
+  // const navigate = useNavigate();
 
   useEffect(() => {
     fetchSlots(turfId)
