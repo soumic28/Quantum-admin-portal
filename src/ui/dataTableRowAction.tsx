@@ -9,7 +9,7 @@ import {
   DropdownMenuTrigger,
 } from "./DropdownMenu"
 import { useToast } from "./use-toast";
-import { deleteTurf, duplicateTurf } from "../api/turf";
+import { deleteTurf } from "../api/turf";
 
 interface props{
   id:string;
