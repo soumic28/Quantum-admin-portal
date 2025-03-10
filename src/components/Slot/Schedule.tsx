@@ -35,8 +35,10 @@ const initialWeekData = {
 
 export function Schedule({
   setShowForm,
+  turf,
 }: {
   setShowForm: React.Dispatch<React.SetStateAction<boolean>>;
+  turf: string;
 }) {
   const week = [
     "monday",
@@ -57,7 +59,7 @@ export function Schedule({
   const { toast } = useToast();
   const handleSubmit = async () => {
     try {
-      const response = await addSchedule(slots);
+      const response = await addSchedule(slots, turf);
       toast({
         title: "Success",
         description: response.message,
@@ -84,7 +86,6 @@ export function Schedule({
         <Button
           variant="destructive"
           className="text-lg"
-          
           onClick={() => setShowForm(false)}
         >
           Cancel

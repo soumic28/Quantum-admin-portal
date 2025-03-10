@@ -4,16 +4,13 @@ import { Event } from "../interfaces/Event";
 
 export async function getEvents() {
   try {
-    if (localStorage.getItem("role") === "partner") {
-      const response = await axios.get(`${BACKEND_URL}/api/v1/event/partner`, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
-      });
-      return response.data;
-    }
-    const response = await axios.get(`${BACKEND_URL}/api/v1/event`);
+    const response = await axios.get(`${BACKEND_URL}/api/v1/event/partner`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    });
     return response.data;
+    
   } catch (error: any) {
     throw new Error(error.response.data.message);
   }

@@ -46,7 +46,7 @@ export function DataTableRowActions({id}:props) {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-[160px]">
         {/* <DropdownMenuItem>Edit</DropdownMenuItem> */}
-        <DropdownMenuItem onClick={() => duplicateTurf(id)}>Make a copy</DropdownMenuItem>
+        {/* <DropdownMenuItem onClick={() => duplicateTurf(id)}>Make a copy</DropdownMenuItem> */}
         {/* <DropdownMenuItem>Favorite</DropdownMenuItem> */}
         <DropdownMenuItem onClick={handleDelete}>
           Delete

@@ -3,7 +3,6 @@ import { SidebarButton } from './sidebar-button';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { ReactNode } from 'react';
 import { Button } from '../../ui';
-import { Settings } from 'lucide-react';
 
 interface SidebarDesktopProps {
   sidebarItems: SidebarItems;
@@ -44,7 +43,7 @@ export function SidebarDesktop(props: SidebarDesktopProps) {
                 }}>Logout</Button>    
             </div>    
             <div className='text-accent-foreground text-[11px] absolute bottom-5'>
-                <h1><Settings className='inline mr-5 cursor-pointer'/>© 2024 Quantum • All rights reserved</h1>
+                <h1>© 2024 Quantum • All rights reserved</h1>
             </div>
           </div>
         </div>
