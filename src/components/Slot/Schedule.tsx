@@ -1,7 +1,8 @@
 import {  useState } from "react";
 import { Button, Input, Label } from "../../ui";
 import { Switch } from "../../ui/Switch";
-import { FaPlus, FaTrash, FaRegCopy, FaPaste } from "react-icons/fa";
+// import { FaPlus, FaTrash, FaRegCopy, FaPaste } from "react-icons/fa";
+import { FaPlus, FaTrash } from "react-icons/fa";
 import { timeList } from "../../constants";
 import { useToast } from "../../ui/use-toast";
 import {
@@ -52,7 +53,7 @@ export function Schedule({
   const [weekState, setWeekState] = useState<{ [key: string]: boolean }>(
     initialWeekState
   );
-  const [copyDay, setCopyDay] = useState<string>("");
+  // const [copyDay, setCopyDay] = useState<string>("");
   const [slots, setSlots] = useState<{
     [key: string]: { startTime: string; endTime: string; price: number }[];
   }>(initialWeekData);
@@ -74,12 +75,14 @@ export function Schedule({
       });
     }
   };
-  const copySlotsToOtherDay = (pasteDay: string) => {
-    setSlots((prevSlots) => ({
-      ...prevSlots,
-      [pasteDay]: prevSlots[copyDay].map((slot) => ({ ...slot })),
-    }));
-  };
+
+  // const copySlotsToOtherDay = (pasteDay: string) => {
+  //   setSlots((prevSlots) => ({
+  //     ...prevSlots,
+  //     [pasteDay]: prevSlots[copyDay].map((slot) => ({ ...slot })),
+  //   }));
+  // };
+
   return (
     <div>
       <div className="flex justify-between items-center p-5">
@@ -141,8 +144,8 @@ const Toggle = ({
   setWeekState,
   slots,
   setSlots,
-  setCopyDay,
-  copySlotsToOtherDay,
+  // setCopyDay,
+  // copySlotsToOtherDay,
 }: ToggleProps) => {
   const [checked, setChecked] = useState(isActive);
 
