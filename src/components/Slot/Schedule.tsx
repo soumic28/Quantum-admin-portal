@@ -65,6 +65,7 @@ export function Schedule({
         description: response.message,
         variant: "default",
       });
+      setShowForm(false);
     } catch (error: any) {
       toast({
         title: "Error",
@@ -102,8 +103,8 @@ export function Schedule({
                 setWeekState={setWeekState}
                 slots={slots}
                 setSlots={setSlots}
-                setCopyDay={setCopyDay}
-                copySlotsToOtherDay={copySlotsToOtherDay}
+                // setCopyDay={setCopyDay}
+                // copySlotsToOtherDay={copySlotsToOtherDay}
               />
             );
           })}
@@ -130,8 +131,8 @@ interface ToggleProps {
       [key: string]: { startTime: string; endTime: string; price: number }[];
     }>
   >;
-  setCopyDay: React.Dispatch<React.SetStateAction<string>>;
-  copySlotsToOtherDay: (copyDay: string) => void;
+  setCopyDay?: React.Dispatch<React.SetStateAction<string>>;
+  copySlotsToOtherDay?: (copyDay: string) => void;
 }
 
 const Toggle = ({
@@ -208,14 +209,14 @@ const Toggle = ({
               onClick={addSlot}
             />
             {/**add copy button and paste button */}
-            <FaRegCopy
+            {/* <FaRegCopy
               className="text-slate-400 cursor-pointer"
               onClick={() => setCopyDay(day)}
             />
             <FaPaste
               className="text-slate-400 cursor-pointer"
               onClick={() => copySlotsToOtherDay(day)}
-            />
+            /> */}
           </div>
         )}
       </div>

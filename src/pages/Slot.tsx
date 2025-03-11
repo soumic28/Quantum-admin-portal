@@ -175,6 +175,7 @@ export function SchedulePage({ turf }: { turf: string }) {
       try {
         if(turf === "") return;
         const response = await getAllSchedules(turf);
+        console.log('response', response);
         setSchedules(response.data);
       } catch (error: any) {
         toast({
@@ -184,7 +185,7 @@ export function SchedulePage({ turf }: { turf: string }) {
       }
     }
     fetchSchedules();
-  }, [turf]);
+  }, [turf, showForm]);
 
   if (showForm) return <Schedule setShowForm={setShowForm} turf={turf} />;
   return (
@@ -223,7 +224,7 @@ export function SchedulePage({ turf }: { turf: string }) {
 // ];
 
 function ScheduleCard({
-  // schedule,
+  schedule,
   index,
   turfId
 }: {
@@ -242,8 +243,9 @@ function ScheduleCard({
   // const navigate = useNavigate();
 
   useEffect(() => {
-    fetchSlots(turfId)
+    fetchSlots(turfId, schedule._id)
       .then((data) => {
+        console.log(data.data);
         setSlots(data.data);
       })
       .catch((error) => {
