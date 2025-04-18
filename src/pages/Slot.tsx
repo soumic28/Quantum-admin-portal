@@ -3,7 +3,11 @@ import { Button } from "../ui/button";
 import { Schedule } from "../components/Slot/Schedule";
 //import { SlotPage } from "../components/Slot/Slot"; // Import SlotPage
 import { useToast } from "../ui/use-toast";
+<<<<<<< HEAD
 import { fetchSlots, getAllSchedules } from "../api/slots";
+=======
+import { createSlots, fetchSlots, getAllSchedules } from "../api/slots";
+>>>>>>> 041bf62 (changes)
 import { ScheduleType } from "../interfaces/Schedule";
 import {
   AlertDialog,
@@ -15,6 +19,7 @@ import {
   // AlertDialogTitle,
   AlertDialogTrigger,
 } from "../ui/AlertBox";
+<<<<<<< HEAD
 // import { Loader } from "../ui";
 // import {
 //   Select,
@@ -60,6 +65,53 @@ import { useForm } from "react-hook-form";
 
 export function Slot() {
   const { setValue } = useForm();
+=======
+import { Loader } from "../ui";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "../ui/select";
+import { Turf } from "../interfaces";
+import { getTurfs } from "../api/slots";
+import { DatePickerWithRange } from "../ui/DateRange";
+import { addDays } from "date-fns";
+import { DateRange } from "react-day-picker";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
+import { useNavigate } from "react-router-dom";
+import { SlotPage } from "../components/Slot/Slot";
+import { Label, LabelInputContainer } from "../ui";
+import { useForm, Controller } from "react-hook-form";
+import SelectInput from "../ui/SelectInput";
+
+const slots = [
+  {
+    date: "2021-09-01",
+    startTime: "10:00 AM",
+    endTime: "12:00 PM",
+  },
+  {
+    date: "2021-09-01",
+    startTime: "02:00 PM",
+    endTime: "04:00 PM",
+  },
+  {
+    date: "2021-09-02",
+    startTime: "10:00 AM",
+    endTime: "12:00 PM",
+  },
+  {
+    date: "2021-09-02",
+    startTime: "02:00 PM",
+    endTime: "04:00 PM",
+  },
+]
+
+export function Slot() {
+  const { register, handleSubmit, setValue, control, watch } = useForm();
+>>>>>>> 041bf62 (changes)
   const [turfList, setTurfList] = useState([]);
   const [chosenTurf, setChosenTurf] = useState("");
   const [chosenTurfKey, setChosenTurfKey] = useState("");
@@ -175,7 +227,10 @@ export function SchedulePage({ turf }: { turf: string }) {
       try {
         if(turf === "") return;
         const response = await getAllSchedules(turf);
+<<<<<<< HEAD
         console.log('response', response);
+=======
+>>>>>>> 041bf62 (changes)
         setSchedules(response.data);
       } catch (error: any) {
         toast({
@@ -185,7 +240,11 @@ export function SchedulePage({ turf }: { turf: string }) {
       }
     }
     fetchSchedules();
+<<<<<<< HEAD
   }, [turf, showForm]);
+=======
+  }, [turf]);
+>>>>>>> 041bf62 (changes)
 
   if (showForm) return <Schedule setShowForm={setShowForm} turf={turf} />;
   return (
@@ -235,6 +294,7 @@ function ScheduleCard({
   // const [loading, setLoading] = useState<boolean>(false);
   const [open, setOpen] = useState<boolean>(false);
   const [slots, setSlots] = useState<any[]>([]);
+<<<<<<< HEAD
   // const [date, setDate] = useState<DateRange>({
   //   from: new Date(),
   //   to: addDays(new Date(), 10),
@@ -246,6 +306,18 @@ function ScheduleCard({
     fetchSlots(turfId, schedule._id)
       .then((data) => {
         console.log(data.data);
+=======
+  const [date, setDate] = useState<DateRange>({
+    from: new Date(),
+    to: addDays(new Date(), 10),
+  });
+  const { toast } = useToast();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    fetchSlots(turfId)
+      .then((data) => {
+>>>>>>> 041bf62 (changes)
         setSlots(data.data);
       })
       .catch((error) => {

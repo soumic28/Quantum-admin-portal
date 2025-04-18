@@ -64,9 +64,15 @@ export async function createSlots(data:CreateSlotData){
     }
 }
 
+<<<<<<< HEAD
 export async function fetchSlots(turfId:string, scheduleId:string){
     try{
         const response = await axios.get(`${BACKEND_URL}/api/v1/slot/week/${turfId}?scheduleId=${scheduleId}`,{
+=======
+export async function fetchSlots(turfId:string){
+    try{
+        const response = await axios.get(`${BACKEND_URL}/api/v1/slot/week/${turfId}`,{
+>>>>>>> 041bf62 (changes)
             headers:{
                 Authorization:`Bearer ${localStorage.getItem("accessToken")}`
             }
